@@ -1,6 +1,8 @@
 # Gerenciado de Tarefas em Next.js
 
-Um Gerenciado de Tarefas feito em Next.js que está sendo construído nas aulas de 'Front-End Engineer and UX' do MBA de Software Engineer da Fiap.
+Um Gerenciado de Tarefas feito em Next.js que está sendo construído para a aula de 'Front-End Engineer and UX' do MBA de Software Engineer da @fiap.
+
+--
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

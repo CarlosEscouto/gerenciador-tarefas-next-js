@@ -3,11 +3,11 @@ import md5 from 'md5';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { env } from 'process';
 import jwt from 'jsonwebtoken';
-import connectDB from '../../middlewares/connectDB';
-import { UserModel } from '../../models/UserModel';
-import { DefaultResponseMessage } from '../../types/DefaultResponseMessage';
-import { Login } from '../../types/Login';
-import { LoginResponse } from '../../types/LoginResponse';
+import connectDB from '../../../middlewares/connectDB';
+import { UserModel } from '../../../models/UserModel';
+import { DefaultResponseMessage } from '../../../types/DefaultResponseMessage';
+import { Login } from '../../../types/Login';
+import { LoginResponse } from '../../../types/LoginResponse';
 
 /**
  *

@@ -2,15 +2,15 @@
  *
  *
  * @export
- * @class Task
+ * @class TaskDTO
  */
-export class Task {
+export class TaskDTO {
   /**
    *
    *
    * @private
    * @type {string}
-   * @memberof Task
+   * @memberof TaskDTO
    */
   private _id!: string;
 
@@ -18,7 +18,7 @@ export class Task {
    *
    *
    * @type {string}
-   * @memberof Task
+   * @memberof TaskDTO
    */
   name!: string;
 
@@ -26,7 +26,7 @@ export class Task {
    *
    *
    * @type {string}
-   * @memberof Task
+   * @memberof TaskDTO
    */
   userId!: string;
 
@@ -34,7 +34,7 @@ export class Task {
    *
    *
    * @type {Date}
-   * @memberof Task
+   * @memberof TaskDTO
    */
   expectedfinishAt!: Date;
 
@@ -42,7 +42,7 @@ export class Task {
    *
    *
    * @type {Date}
-   * @memberof Task
+   * @memberof TaskDTO
    */
   finishAt!: Date;
 }

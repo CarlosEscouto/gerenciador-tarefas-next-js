@@ -30,7 +30,7 @@ const jwtValidator = (handler : NextApiHandler) => async (req: NextApiRequest, r
       const decoded = jwt.verify(token, env.SECRET_KEY) as JwtPayload;
 
       if (!decoded) {
-        return res.status(500).json({ error: 'Não autenticado.' });
+        return res.status(500).json({ error: 'Erro ao decodar token.' });
       }
 
       if (req.body) {

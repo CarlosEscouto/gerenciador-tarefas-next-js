@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
+/** @type {*} */
 const UserSchema = new Schema({
   name: { type: String, required: [true, '* Campos obrigatório!']},
   email: { type: String, required: [true, '* Campos obrigatório!']},

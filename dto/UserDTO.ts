@@ -2,15 +2,15 @@
  *
  *
  * @export
- * @class User
+ * @class UserDTO
  */
-export class User {
+export class UserDTO {
   /**
    *
    *
    * @private
    * @type {string}
-   * @memberof User
+   * @memberof UserDTO
    */
   private _id!: string;
 
@@ -18,7 +18,7 @@ export class User {
    *
    *
    * @type {string}
-   * @memberof User
+   * @memberof UserDTO
    */
   name!: string;
 
@@ -26,7 +26,7 @@ export class User {
    *
    *
    * @type {string}
-   * @memberof User
+   * @memberof UserDTO
    */
   email!: string;
 
@@ -34,7 +34,7 @@ export class User {
    *
    *
    * @type {string}
-   * @memberof User
+   * @memberof UserDTO
    */
   password!: string;
 }

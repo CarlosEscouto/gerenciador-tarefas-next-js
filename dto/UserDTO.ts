@@ -12,7 +12,7 @@ export class UserDTO {
    * @type {string}
    * @memberof UserDTO
    */
-  private _id!: string;
+  private id!: string;
 
   /**
    *

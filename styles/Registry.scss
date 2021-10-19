@@ -1,0 +1,120 @@
+@import "./Config.scss";
+
+.container-registry {
+  h5 {
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    top: -10px;
+    color: $primaryColor;
+  }
+
+  .logo {
+    width: 180px;
+    display: block;
+    margin: auto;
+    padding-bottom: 30px;
+  }
+
+  p {
+    align-self: center;
+    font-weight: bold;
+    color: $errorColor;
+    text-align: center;
+    max-width: 300px;
+  }
+
+  a {
+    text-align: center;
+    color: $primaryColor;
+    margin-top: 20px;
+    display: block
+  }
+
+  .input {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    input {
+      width: 224px;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: $primaryColor;
+      border-radius: 0;
+      border-top-width: 0;
+      border-left-width: 0;
+      border-right-width: 0;
+      border-bottom: 0.1em solid $mediumGreyColor;
+      padding-bottom: 8px;
+      outline: none;
+
+      &:focus {
+        border-bottom-color: $primaryColor;
+      }
+
+      &::placeholder &::-ms-input-placeholder &:-ms-input-placeholder {
+        color: $darkGreyColor;
+        opacity: 1;
+      }
+
+    }
+  }
+
+  button {
+    width: 100%;
+    height: 50px;
+    background: $primaryColor;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 600;
+
+    &:disabled {
+      background-color: $darkGreyColor;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .logo {
+      width: 420px;
+      display: block;
+      margin: auto 7.5% auto auto;
+    }
+
+    p {
+      max-width: none;
+    }
+
+    form {
+      border: 1px solid $primaryColor;
+      border-radius: 32px;
+      padding: 80px 40px;
+
+      h5 {
+        position: relative;
+        top: -32px;
+        font-size: 22px;
+      }
+
+      .input {
+
+        input {
+          width: 343px;
+        }
+      }
+    }
+  }
+}

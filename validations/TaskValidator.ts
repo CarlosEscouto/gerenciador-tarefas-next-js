@@ -1,4 +1,4 @@
-import { TaskDTO } from "../dto/TaskDTO";
+import { TaskRequest } from "../types/TaskRequest";
 import { ValidatorRequest } from "../types/ValidatorRequest";
 
 /**
@@ -10,10 +10,10 @@ import { ValidatorRequest } from "../types/ValidatorRequest";
 export class TaskValidator {
   /**
    * Creates an instance of TaskValidator.
-   * @param {TaskDTO} task
+   * @param {TaskRequest} task
    * @memberof TaskValidator
    */
-  constructor(public task: TaskDTO) {}
+  constructor(public task: TaskRequest) {}
 
   /**
    *
@@ -23,10 +23,11 @@ export class TaskValidator {
    * @memberof TaskValidator
    */
   public get validName(): ValidatorRequest {
-    if (!this.task.name || this.task.name.length < 3) return {
-      error: 1,
-      message: 'O nome precisa ter pelo menos 2 caracteres.'
-    };
+    if (!this.task.name || this.task.name.length < 3)
+      return {
+        error: 1,
+        message: "O nome precisa ter pelo menos 2 caracteres.",
+      };
 
     return { error: 0 };
   }
@@ -39,20 +40,29 @@ export class TaskValidator {
    * @memberof TaskValidator
    */
   public get validExpectedfinishAt(): ValidatorRequest {
-    if (!this.task.expectedfinishAt) return {
-      error: 1,
-      message: 'A data de previsão é obrigatória.'
-    };
+    if (!this.task.expectedfinishAt)
+      return {
+        error: 1,
+        message: "A data de previsão é obrigatória.",
+      };
 
-    if (!new RegExp(/[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}\s-?[0-9]{2}:[0-9]{2}$$/, 'g').test(this.task.expectedfinishAt.toString())) return {
-      error: 1,
-      message: 'O formato da data de previsão está invalido. ex: 2021-06-10 10:00:00 -03:00.'
-    };
+    if (
+      !new RegExp(
+        /[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}\s-?[0-9]{2}:[0-9]{2}$$/,
+        "g"
+      ).test(this.task.expectedfinishAt.toString())
+    )
+      return {
+        error: 1,
+        message:
+          "O formato da data de previsão está invalido. ex: 2021-06-10 10:00:00 -03:00.",
+      };
 
-    if (new Date(this.task.expectedfinishAt) < new Date()) return {
-      error: 1,
-      message: 'A data de previsão não pode ser menor que hoje.'
-    };
+    if (new Date(this.task.expectedfinishAt) < new Date())
+      return {
+        error: 1,
+        message: "A data de previsão não pode ser menor que hoje.",
+      };
 
     return { error: 0 };
   }
@@ -65,10 +75,11 @@ export class TaskValidator {
    * @memberof TaskValidator
    */
   public get validUserId(): ValidatorRequest {
-    if (!this.task.userId) return {
-      error: 1,
-      message: 'O usuário é obrigatório.'
-    };
+    if (!this.task.userId)
+      return {
+        error: 1,
+        message: "O usuário é obrigatório.",
+      };
 
     return { error: 0 };
   }

@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import { Login } from "../container/Login";
 import { useEffect, useState } from "react";
+import { Registry } from "../container/Registry";
 import { Home } from "../container/Home";
 
-const Index: NextPage = () => {
+const Cadastro: NextPage = () => {
   const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
@@ -19,8 +19,8 @@ const Index: NextPage = () => {
   return accessToken ? (
     <Home setAccessToken={setAccessToken} />
   ) : (
-    <Login setAccessToken={setAccessToken} />
+    <Registry setAccessToken={setAccessToken} />
   );
 };
 
-export default Index;
+export default Cadastro;

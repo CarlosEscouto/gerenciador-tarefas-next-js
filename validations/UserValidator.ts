@@ -1,4 +1,4 @@
-import { UserDTO } from "../dto/UserDTO";
+import { UserRequest } from "../types/UserRequest";
 import { ValidatorRequest } from "../types/ValidatorRequest";
 
 /**
@@ -10,10 +10,10 @@ import { ValidatorRequest } from "../types/ValidatorRequest";
 export class UserValidator {
   /**
    * Creates an instance of UserValidator.
-   * @param {UserDTO} user
+   * @param {UserRequest} user
    * @memberof UserValidator
    */
-  constructor(public user: UserDTO) {}
+  constructor(private _user: UserRequest) {}
 
   /**
    *
@@ -23,15 +23,17 @@ export class UserValidator {
    * @memberof UserValidator
    */
   public get validName(): ValidatorRequest {
-    if (!this.user.name || this.user.name.length < 4) return {
-      error: 1,
-      message: 'O Nome tem que ter pelo menos 3 caracteres.'
-    };
+    if (!this._user.name || this._user.name.length < 4)
+      return {
+        error: 1,
+        message: "O Nome tem que ter pelo menos 3 caracteres.",
+      };
 
-    if (new RegExp(/[0-9]/).test(this.user.name)) return {
-      error: 1,
-      message: 'O Nome não pode ter numeros.'
-    };
+    if (new RegExp(/[0-9]/).test(this._user.name))
+      return {
+        error: 1,
+        message: "O Nome não pode ter numeros.",
+      };
 
     return { error: 0 };
   }
@@ -44,15 +46,21 @@ export class UserValidator {
    * @memberof UserValidator
    */
   public get validEmail(): ValidatorRequest {
-    if (!this.user.email) return {
-      error: 1,
-      message: 'O E-mail é obrigatório.'
-    };
+    if (!this._user.email)
+      return {
+        error: 1,
+        message: "O E-mail é obrigatório.",
+      };
 
-    if (!new RegExp(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/, 'i').test(this.user.email)) return {
-      error: 1,
-      message: 'O E-mail é inválido.'
-    };
+    if (
+      !new RegExp(/^[a-z0-9.]+@[a-z0-9]+\.[a-z.]+(\.[a-z]+)?$/).test(
+        this._user.email
+      )
+    )
+      return {
+        error: 1,
+        message: "O E-mail é inválido.",
+      };
 
     return { error: 0 };
   }
@@ -65,30 +73,37 @@ export class UserValidator {
    * @memberof UserValidator
    */
   public get validPassword(): ValidatorRequest {
-    if (!this.user.password) return {
-      error: 1,
-      message: 'O Senha é obrigatória.'
-    };
+    if (!this._user.password)
+      return {
+        error: 1,
+        message: "A Senha é obrigatória.",
+      };
 
-    if (!new RegExp(/^(?=.*[A-Z].*[A-Z])$/, 'g').test(this.user.password)) return {
-      error: 1,
-      message: 'O E-mail é precisa ter no minimo 2 caracteres maiusculos.'
-    };
+    // if (!new RegExp(/^(?=.*[A-Z].*[A-Z])$/, "g").test(this._user.password))
+    //   return {
+    //     error: 1,
+    //     message: "A Senha precisa ter no minimo 2 caracteres maiusculos.",
+    //   };
 
-    if (!new RegExp(/^(?=.*[!@#$&*])$/, 'g').test(this.user.password)) return {
-      error: 1,
-      message: 'O E-mail é precisa ter no minimo 1 caracter especial.'
-    };
+    // if (!new RegExp(/^(?=.*[!@#$&*])$/, "g").test(this._user.password))
+    //   return {
+    //     error: 1,
+    //     message: "A Senha precisa ter no minimo 1 caracter especial.",
+    //   };
 
-    if (!new RegExp(/^(?=.*[0-9].*[0-9])$/, 'g').test(this.user.password)) return {
-      error: 1,
-      message: 'O E-mail é precisa ter no minimo 2 numeros.'
-    };
+    // if (!new RegExp(/^(?=.*[0-9].*[0-9])$/, "g").test(this._user.password))
+    //   return {
+    //     error: 1,
+    //     message: "A Senha precisa ter no minimo 2 numeros.",
+    //   };
 
-    if (!new RegExp(/^(?=.*[a-z].*[a-z].*[a-z])$/, 'g').test(this.user.password)) return {
-      error: 1,
-      message: 'O E-mail é precisa ter no minimo 3 caracteres minusculos.'
-    };
+    // if (
+    //   !new RegExp(/^(?=.*[a-z].*[a-z].*[a-z])$/, "g").test(this._user.password)
+    // )
+    //   return {
+    //     error: 1,
+    //     message: "A Senha precisa ter no minimo 3 caracteres minusculos.",
+    //   };
 
     return { error: 0 };
   }

@@ -12,7 +12,7 @@ export class TaskDTO {
    * @type {string}
    * @memberof TaskDTO
    */
-  private _id!: string;
+  private id?: string;
 
   /**
    *
@@ -44,5 +44,5 @@ export class TaskDTO {
    * @type {Date}
    * @memberof TaskDTO
    */
-  finishAt!: Date;
+  finishAt?: Date;
 }
